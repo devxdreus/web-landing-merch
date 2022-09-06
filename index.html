@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Responsive merch</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <div class="hero">
+        <h2 class="heading">Andri Firdaus</h2>
+        <p class="sub-heading">Merch and stuff</p>
+      </div>
+      <div class="features f1">
+        <h4 class="price">IDR 250K</h4>
+        <p class="item">Tampan</p>
+      </div>
+      <div class="features f2">
+        <h4 class="price">IDR 150K</h4>
+        <p class="item">Mempesona</p>
+      </div>
+    </header>
+
+    <nav class="menu">
+      <div class="menu-toggle">
+        <input type="checkbox">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="brand">
+        <h1>Andri Merch</h1>
+      </div>
+      <ul class="menu-list">
+        <li><a href="">Home</a></li>
+        <li><a href="">Products</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Gallery</a></li>
+      </ul>
+    </nav>
+
+
+    <section class="services">
+      <div class="service">
+        <h3>Tutorial</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab exercitationem fuga necessitatibus. Minima, minus
+          ea.</p>
+      </div>
+      <div class="service">
+        <h3>Online Cource</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab exercitationem fuga necessitatibus. Minima, minus
+          ea.</p>
+      </div>
+      <div class="service">
+        <h3>Podcast</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab exercitationem fuga necessitatibus. Minima, minus
+          ea.</p>
+      </div>
+      <div class="service">
+        <h3>Merch</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab exercitationem fuga necessitatibus. Minima, minus
+          ea.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle input');
+    const nav = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', function () {
+      nav.classList.toggle('slide');
+    });
+  </script>
+</body>
+
+</html>

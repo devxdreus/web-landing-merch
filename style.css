@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  background-color: #ddd;
+  margin: 50px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+
+/* container */
+.container {
+  display: grid;
+  gap: 10px;
+}
+
+
+/* header */
+.header {
+  display: grid;
+  grid-template-areas: 
+    "hero hero f1"
+    "hero hero f2";
+}
+
+.hero {
+  grid-area: hero;
+  background-image: url(img/hero.jpg);
+  min-height: 300px;
+  padding: 50px;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero > * {
+  display: none;
+}
+
+.features {
+  background-color: #333;
+  color: #eee;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.f1 {
+  grid-area: f1;
+  background-image: url(img/f1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.f2 {
+  grid-area: f2;
+  background-image: url(img/f2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.features .price {
+  font-size: 3em;
+  font-weight: 200;
+}
+
+
+/* Navigation */
+
+.menu {
+  order: -1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+.menu .brand {
+  font-size: 1.3em;
+  color: #222;
+}
+
+.menu-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 5px;
+}
+
+.menu-list a {
+  display: block;
+  text-decoration: none;
+  background-color: #333;
+  color: #eee;
+  text-align: center;
+  font-size: .9em;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+
+/* hamburger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  margin: 15px 0 10px;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 42px;
+  height: 29px;
+  left: -10px;
+  top: -7px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #111;
+  border-radius: 3px;
+  transition: all 600ms ease-in-out;
+}
+
+/* humberger menu animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle span:nth-child(3) {
+  transform-origin: 30% 50%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: #fff;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: #fff;
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+  opacity: 0;
+}
+
+
+/* Services */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.service {
+  background-color: #eaeaea;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+  border-radius: 3px;
+}
+
+.service h3 {
+  font-size: 1.5em;
+}
+
+.service p {
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+
+
+/* Responsive Breakpoint */
+@media (max-width: 1024px) {
+  .menu {
+    order: inherit;
+    grid-template-columns: 1fr;
+  }
+
+  .menu .brand {
+    display: none;
+  }
+
+  .hero > * {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    order: -1;
+    justify-items: end;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu ul {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    height: 100vh;
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+    z-index: 1;
+    transform: translateY(-100%);
+    transition: all 600ms ease-in-out;
+    opacity: 0;
+  }
+
+  .menu-list li a {
+    background-color: #111;
+  }
+
+  .menu ul.slide {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 600px) {
+  body {
+    margin: 15px;
+  }
+
+  .header {
+    grid-template-areas: 
+    "hero"
+    "f1"
+    "f2";
+  }
+}
